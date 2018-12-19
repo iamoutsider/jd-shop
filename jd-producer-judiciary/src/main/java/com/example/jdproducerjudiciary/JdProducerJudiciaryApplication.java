@@ -9,7 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableDiscoveryClient
 @MapperScan("com.example.jdproducerjudiciary.dao")
-@EnableSwagger2
+//@EnableSwagger2
 public class JdProducerJudiciaryApplication {
 
     public static void main(String[] args) {
