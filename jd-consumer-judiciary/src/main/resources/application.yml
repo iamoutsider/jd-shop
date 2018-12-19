@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: jd-consumer-judiciary
+  zipkin: #-ui
+    base-url: http://188.131.133.118:7700
+  sleuth: #追踪
+    sampler:
+      percentage: 1.0
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@47.94.235.82:7776/eureka/
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level: info
