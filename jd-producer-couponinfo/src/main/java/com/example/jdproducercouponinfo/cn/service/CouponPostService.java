@@ -49,5 +49,5 @@ public interface CouponPostService {
      * @param couList 实体类对象
      * @return String 返回添加优惠券状态信息
      */
-    String couponpost(CouList couList);
+    String couponpost(CouList couList, int time);
 }

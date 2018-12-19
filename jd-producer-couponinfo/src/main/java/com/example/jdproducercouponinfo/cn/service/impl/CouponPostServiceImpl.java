@@ -34,10 +34,12 @@ import com.alibaba.fastjson.JSON;
 import com.example.jdproducercouponinfo.cn.pojo.CouList;
 import com.example.jdproducercouponinfo.cn.service.CouponPostService;
 import com.example.jdproducercouponinfo.cn.util.MakeCouponId;
-import com.example.jdproducercouponinfo.mapper.CouponPost;
+import com.example.jdproducercouponinfo.cn.mapper.CouponPost;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -60,11 +62,14 @@ public class CouponPostServiceImpl implements CouponPostService {
      * @date 2018/12/19 17:55
      */
     @Override
-    public String couponpost(CouList couList) {
-        MakeCouponId makeCouponId = new MakeCouponId();
-        couList.setCouCid(makeCouponId.makeCouponID());
-        couList.setCouStauts(0);
-        if(couponPost.insertSelective(couponPost) >= 0){
+    public String couponpost(CouList couList, int time) {
+        couList.setCou_cid(new MakeCouponId().makeCouponID().replace("-",""));
+        couList.setCou_stauts(0);
+        SimpleDateFormat startDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat passDateFormat = new SimpleDateFormat("yyyy-MM-dd 23:59:59");
+        couList.setCou_starttime(startDateFormat.format(System.currentTimeMillis()));
+        couList.setCou_passtime(passDateFormat.format(System.currentTimeMillis() + time * 24 * 60 * 60 * 1000));
+        if(couponPost.insertSelective(couList) >= 0){
             return JSON.toJSONString("添加成功");
         } else {
             return JSON.toJSONString("添加失败");

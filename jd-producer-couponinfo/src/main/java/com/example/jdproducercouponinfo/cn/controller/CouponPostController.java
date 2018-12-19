@@ -50,8 +50,9 @@ public class CouponPostController {
     @Resource
     private CouponPostService couponPostService;
 
-    @PostMapping("/postcou")
-    public String couponPost(CouList couList){
-        return couponPostService.couponpost(couList);
+    @PostMapping(value = "/postcou", produces = "text/json;charset=utf-8")
+    public String couponPost(CouList couList,  int time){
+        System.out.println(couList.getCou_name());
+        return couponPostService.couponpost(couList, time);
     }
 }

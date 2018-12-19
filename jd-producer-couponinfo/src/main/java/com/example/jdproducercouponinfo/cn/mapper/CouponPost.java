@@ -28,9 +28,10 @@
  * 　　　　　　　　　 ┃┫┫　 ┃┫┫
  * 　　　　　　　　　 ┗┻┛　 ┗┻┛+ + + + *
  */
-package com.example.jdproducercouponinfo.mapper;
+package com.example.jdproducercouponinfo.cn.mapper;
 
 import com.example.jdproducercouponinfo.cn.dao.BaseMapper;
+import com.example.jdproducercouponinfo.cn.pojo.CouList;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -40,6 +41,6 @@ import com.example.jdproducercouponinfo.cn.dao.BaseMapper;
  * @create 2018/12/19
  * @since 1.0.0
  */
-public interface CouponPost extends BaseMapper<CouponPost> {
+public interface CouponPost extends BaseMapper<CouList> {
 
 }
