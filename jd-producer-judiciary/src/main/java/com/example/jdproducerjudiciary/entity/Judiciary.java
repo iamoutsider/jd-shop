@@ -7,22 +7,22 @@ import java.io.Serializable;
  * (Judiciary)实体类
  *
  * @author makejava
- * @since 2018-12-20 18:24:01
+ * @since 2018-12-20 21:50:35
  */
 public class Judiciary implements Serializable {
-    private static final long serialVersionUID = -64876173334881386L;
+    private static final long serialVersionUID = 177255889074662787L;
     //司法拍品ID
     private Integer judId;
     //拍品类别
     private Integer judCategory;
+    //省市 山西
+    private String judAreacity;
     //拍品状态1拍卖中2预告中3已结束4已暂缓5已中止6已撤回
     private Integer judStatus;
     //拍的次数(几拍) 一拍 二拍 变卖 三种
     private Integer judFrequency;
     //司法拍品名
     private String judTradename;
-    //省市 山西
-    private String judAreacity;
     //拍品地址
     private String judSite;
     //经度
@@ -45,8 +45,8 @@ public class Judiciary implements Serializable {
     private String judBidincrement;
     //保证金
     private String judCashdeposit;
-    //是否支持线上贷款 0不支持 1支持
-    private Integer judShifouload;
+    //法院公告
+    private String judAnnouncement;
     //被设置提醒次数
     private Integer judRemind;
     //图片IP地址图片之间用逗号隔开
@@ -55,8 +55,6 @@ public class Judiciary implements Serializable {
     private Integer judDisposeunit;
     //联系人加电话  空格隔开
     private String judLinkman;
-    //支持贷款的银行ID 用逗号隔开
-    private Integer judBank;
 
 
     public Integer getJudId() {
@@ -73,6 +71,14 @@ public class Judiciary implements Serializable {
 
     public void setJudCategory(Integer judCategory) {
         this.judCategory = judCategory;
+    }
+
+    public String getJudAreacity() {
+        return judAreacity;
+    }
+
+    public void setJudAreacity(String judAreacity) {
+        this.judAreacity = judAreacity;
     }
 
     public Integer getJudStatus() {
@@ -97,14 +103,6 @@ public class Judiciary implements Serializable {
 
     public void setJudTradename(String judTradename) {
         this.judTradename = judTradename;
-    }
-
-    public String getJudAreacity() {
-        return judAreacity;
-    }
-
-    public void setJudAreacity(String judAreacity) {
-        this.judAreacity = judAreacity;
     }
 
     public String getJudSite() {
@@ -195,12 +193,12 @@ public class Judiciary implements Serializable {
         this.judCashdeposit = judCashdeposit;
     }
 
-    public Integer getJudShifouload() {
-        return judShifouload;
+    public String getJudAnnouncement() {
+        return judAnnouncement;
     }
 
-    public void setJudShifouload(Integer judShifouload) {
-        this.judShifouload = judShifouload;
+    public void setJudAnnouncement(String judAnnouncement) {
+        this.judAnnouncement = judAnnouncement;
     }
 
     public Integer getJudRemind() {
@@ -233,14 +231,6 @@ public class Judiciary implements Serializable {
 
     public void setJudLinkman(String judLinkman) {
         this.judLinkman = judLinkman;
-    }
-
-    public Integer getJudBank() {
-        return judBank;
-    }
-
-    public void setJudBank(Integer judBank) {
-        this.judBank = judBank;
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.List;
  * (JudCategory)表数据库访问层
  *
  * @author makejava
- * @since 2018-12-20 18:23:30
+ * @since 2018-12-20 21:05:36
  */
 public interface JudCategoryDao {
 

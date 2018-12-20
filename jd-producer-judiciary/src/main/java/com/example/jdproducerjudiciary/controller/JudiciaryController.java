@@ -1,25 +1,25 @@
 package com.example.jdproducerjudiciary.controller;
 
-import com.example.jdproducerjudiciary.entity.JudSku;
-import com.example.jdproducerjudiciary.service.JudSkuService;
+import com.example.jdproducerjudiciary.entity.Judiciary;
+import com.example.jdproducerjudiciary.service.JudiciaryService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 /**
- * (JudSku)表控制层
+ * (Judiciary)表控制层
  *
  * @author makejava
- * @since 2018-12-20 18:23:45
+ * @since 2018-12-20 21:50:35
  */
 @RestController
-@RequestMapping("judSku")
-public class JudSkuController {
+@RequestMapping("judiciary")
+public class JudiciaryController {
     /**
      * 服务对象
      */
     @Resource
-    private JudSkuService judSkuService;
+    private JudiciaryService judiciaryService;
 
     /**
      * 通过主键查询单条数据
@@ -28,8 +28,8 @@ public class JudSkuController {
      * @return 单条数据
      */
     @GetMapping("selectOne")
-    public JudSku selectOne(Integer id) {
-        return this.judSkuService.queryById(id);
+    public Judiciary selectOne(Integer id) {
+        return this.judiciaryService.queryById(id);
     }
 
 }

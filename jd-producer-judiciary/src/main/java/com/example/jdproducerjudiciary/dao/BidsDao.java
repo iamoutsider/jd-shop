@@ -8,7 +8,7 @@ import java.util.List;
  * (Bids)表数据库访问层
  *
  * @author makejava
- * @since 2018-12-20 18:21:48
+ * @since 2018-12-20 21:04:20
  */
 public interface BidsDao {
 

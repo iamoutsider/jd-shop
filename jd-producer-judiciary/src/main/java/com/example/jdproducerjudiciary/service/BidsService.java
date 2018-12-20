@@ -7,7 +7,7 @@ import java.util.List;
  * (Bids)表服务接口
  *
  * @author makejava
- * @since 2018-12-20 18:21:49
+ * @since 2018-12-20 21:04:21
  */
 public interface BidsService {
 

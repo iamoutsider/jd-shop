@@ -6,10 +6,10 @@ import java.io.Serializable;
  * (JudCategory)实体类
  *
  * @author makejava
- * @since 2018-12-20 18:23:30
+ * @since 2018-12-20 21:05:36
  */
 public class JudCategory implements Serializable {
-    private static final long serialVersionUID = 383662240844209024L;
+    private static final long serialVersionUID = -50295680296189518L;
     //司法分类ID
     private Integer judCategoryid;
     //类别

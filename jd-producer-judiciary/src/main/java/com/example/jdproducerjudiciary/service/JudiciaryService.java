@@ -7,7 +7,7 @@ import java.util.List;
  * (Judiciary)表服务接口
  *
  * @author makejava
- * @since 2018-12-20 18:24:01
+ * @since 2018-12-20 21:50:35
  */
 public interface JudiciaryService {
 

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.jdproducerjudiciary.dao.JudiciaryDao">
+
+    <resultMap type="com.example.jdproducerjudiciary.entity.Judiciary" id="JudiciaryMap">
+        <result property="judId" column="jud_id" jdbcType="INTEGER"/>
+        <result property="judCategory" column="jud_category" jdbcType="INTEGER"/>
+        <result property="judAreacity" column="jud_areacity" jdbcType="VARCHAR"/>
+        <result property="judStatus" column="jud_status" jdbcType="INTEGER"/>
+        <result property="judFrequency" column="jud_frequency" jdbcType="INTEGER"/>
+        <result property="judTradename" column="jud_tradename" jdbcType="VARCHAR"/>
+        <result property="judSite" column="jud_site" jdbcType="VARCHAR"/>
+        <result property="judLongitude" column="jud_longitude" jdbcType="VARCHAR"/>
+        <result property="judDimensionality" column="jud_dimensionality" jdbcType="VARCHAR"/>
+        <result property="judAuctiontime" column="jud_auctiontime" jdbcType="TIMESTAMP"/>
+        <result property="judWillnum" column="jud_willnum" jdbcType="INTEGER"/>
+        <result property="judOnlooker" column="jud_onlooker" jdbcType="INTEGER"/>
+        <result property="judCurrentprice" column="jud_currentprice" jdbcType="VARCHAR"/>
+        <result property="judStartingprice" column="jud_startingprice" jdbcType="VARCHAR"/>
+        <result property="judValuation" column="jud_valuation" jdbcType="VARCHAR"/>
+        <result property="judBidincrement" column="jud_bidIncrement" jdbcType="VARCHAR"/>
+        <result property="judCashdeposit" column="jud_cashdeposit" jdbcType="VARCHAR"/>
+        <result property="judAnnouncement" column="jud_announcement" jdbcType="VARCHAR"/>
+        <result property="judRemind" column="jud_remind" jdbcType="INTEGER"/>
+        <result property="judPicture" column="jud_picture" jdbcType="VARCHAR"/>
+        <result property="judDisposeunit" column="jud_disposeunit" jdbcType="INTEGER"/>
+        <result property="judLinkman" column="jud_linkman" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="JudiciaryMap">
+        select
+          jud_id, jud_category, jud_areacity, jud_status, jud_frequency, jud_tradename, jud_site, jud_longitude, jud_dimensionality, jud_auctiontime, jud_willnum, jud_onlooker, jud_currentprice, jud_startingprice, jud_valuation, jud_bidIncrement, jud_cashdeposit, jud_announcement, jud_remind, jud_picture, jud_disposeunit, jud_linkman
+        from jd_judiciary.judiciary
+        where jud_id = #{judId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="JudiciaryMap">
+        select
+          jud_id, jud_category, jud_areacity, jud_status, jud_frequency, jud_tradename, jud_site, jud_longitude, jud_dimensionality, jud_auctiontime, jud_willnum, jud_onlooker, jud_currentprice, jud_startingprice, jud_valuation, jud_bidIncrement, jud_cashdeposit, jud_announcement, jud_remind, jud_picture, jud_disposeunit, jud_linkman
+        from jd_judiciary.judiciary
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="JudiciaryMap">
+        select
+          jud_id, jud_category, jud_areacity, jud_status, jud_frequency, jud_tradename, jud_site, jud_longitude, jud_dimensionality, jud_auctiontime, jud_willnum, jud_onlooker, jud_currentprice, jud_startingprice, jud_valuation, jud_bidIncrement, jud_cashdeposit, jud_announcement, jud_remind, jud_picture, jud_disposeunit, jud_linkman
+        from jd_judiciary.judiciary
+        <where>
+            <if test="judId != null">
+                and jud_id = #{judId}
+            </if>
+            <if test="judCategory != null">
+                and jud_category = #{judCategory}
+            </if>
+            <if test="judAreacity != null and judAreacity != ''">
+                and jud_areacity = #{judAreacity}
+            </if>
+            <if test="judStatus != null">
+                and jud_status = #{judStatus}
+            </if>
+            <if test="judFrequency != null">
+                and jud_frequency = #{judFrequency}
+            </if>
+            <if test="judTradename != null and judTradename != ''">
+                and jud_tradename = #{judTradename}
+            </if>
+            <if test="judSite != null and judSite != ''">
+                and jud_site = #{judSite}
+            </if>
+            <if test="judLongitude != null and judLongitude != ''">
+                and jud_longitude = #{judLongitude}
+            </if>
+            <if test="judDimensionality != null and judDimensionality != ''">
+                and jud_dimensionality = #{judDimensionality}
+            </if>
+            <if test="judAuctiontime != null">
+                and jud_auctiontime = #{judAuctiontime}
+            </if>
+            <if test="judWillnum != null">
+                and jud_willnum = #{judWillnum}
+            </if>
+            <if test="judOnlooker != null">
+                and jud_onlooker = #{judOnlooker}
+            </if>
+            <if test="judCurrentprice != null and judCurrentprice != ''">
+                and jud_currentprice = #{judCurrentprice}
+            </if>
+            <if test="judStartingprice != null and judStartingprice != ''">
+                and jud_startingprice = #{judStartingprice}
+            </if>
+            <if test="judValuation != null and judValuation != ''">
+                and jud_valuation = #{judValuation}
+            </if>
+            <if test="judBidincrement != null and judBidincrement != ''">
+                and jud_bidIncrement = #{judBidincrement}
+            </if>
+            <if test="judCashdeposit != null and judCashdeposit != ''">
+                and jud_cashdeposit = #{judCashdeposit}
+            </if>
+            <if test="judAnnouncement != null and judAnnouncement != ''">
+                and jud_announcement = #{judAnnouncement}
+            </if>
+            <if test="judRemind != null">
+                and jud_remind = #{judRemind}
+            </if>
+            <if test="judPicture != null and judPicture != ''">
+                and jud_picture = #{judPicture}
+            </if>
+            <if test="judDisposeunit != null">
+                and jud_disposeunit = #{judDisposeunit}
+            </if>
+            <if test="judLinkman != null and judLinkman != ''">
+                and jud_linkman = #{judLinkman}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="judId" useGeneratedKeys="true">
+        insert into jd_judiciary.judiciary(jud_category, jud_areacity, jud_status, jud_frequency, jud_tradename, jud_site, jud_longitude, jud_dimensionality, jud_auctiontime, jud_willnum, jud_onlooker, jud_currentprice, jud_startingprice, jud_valuation, jud_bidIncrement, jud_cashdeposit, jud_announcement, jud_remind, jud_picture, jud_disposeunit, jud_linkman)
+        values (#{judCategory}, #{judAreacity}, #{judStatus}, #{judFrequency}, #{judTradename}, #{judSite}, #{judLongitude}, #{judDimensionality}, #{judAuctiontime}, #{judWillnum}, #{judOnlooker}, #{judCurrentprice}, #{judStartingprice}, #{judValuation}, #{judBidincrement}, #{judCashdeposit}, #{judAnnouncement}, #{judRemind}, #{judPicture}, #{judDisposeunit}, #{judLinkman})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update jd_judiciary.judiciary
+        <set>
+            <if test="judCategory != null">
+                jud_category = #{judCategory},
+            </if>
+            <if test="judAreacity != null and judAreacity != ''">
+                jud_areacity = #{judAreacity},
+            </if>
+            <if test="judStatus != null">
+                jud_status = #{judStatus},
+            </if>
+            <if test="judFrequency != null">
+                jud_frequency = #{judFrequency},
+            </if>
+            <if test="judTradename != null and judTradename != ''">
+                jud_tradename = #{judTradename},
+            </if>
+            <if test="judSite != null and judSite != ''">
+                jud_site = #{judSite},
+            </if>
+            <if test="judLongitude != null and judLongitude != ''">
+                jud_longitude = #{judLongitude},
+            </if>
+            <if test="judDimensionality != null and judDimensionality != ''">
+                jud_dimensionality = #{judDimensionality},
+            </if>
+            <if test="judAuctiontime != null">
+                jud_auctiontime = #{judAuctiontime},
+            </if>
+            <if test="judWillnum != null">
+                jud_willnum = #{judWillnum},
+            </if>
+            <if test="judOnlooker != null">
+                jud_onlooker = #{judOnlooker},
+            </if>
+            <if test="judCurrentprice != null and judCurrentprice != ''">
+                jud_currentprice = #{judCurrentprice},
+            </if>
+            <if test="judStartingprice != null and judStartingprice != ''">
+                jud_startingprice = #{judStartingprice},
+            </if>
+            <if test="judValuation != null and judValuation != ''">
+                jud_valuation = #{judValuation},
+            </if>
+            <if test="judBidincrement != null and judBidincrement != ''">
+                jud_bidIncrement = #{judBidincrement},
+            </if>
+            <if test="judCashdeposit != null and judCashdeposit != ''">
+                jud_cashdeposit = #{judCashdeposit},
+            </if>
+            <if test="judAnnouncement != null and judAnnouncement != ''">
+                jud_announcement = #{judAnnouncement},
+            </if>
+            <if test="judRemind != null">
+                jud_remind = #{judRemind},
+            </if>
+            <if test="judPicture != null and judPicture != ''">
+                jud_picture = #{judPicture},
+            </if>
+            <if test="judDisposeunit != null">
+                jud_disposeunit = #{judDisposeunit},
+            </if>
+            <if test="judLinkman != null and judLinkman != ''">
+                jud_linkman = #{judLinkman},
+            </if>
+        </set>
+        where jud_id = #{judId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from jd_judiciary.judiciary where jud_id = #{judId}
+    </delete>
+
+</mapper>
