@@ -6,9 +6,9 @@ eureka:
       defaultZone: http://root:123456@39.105.158.185:7776/eureka/
 spring:
   datasource: # 使用druid数据源
-    url: jdbc:mysql://localhost:3306/js_bank_account
+    url: jdbc:mysql://47.94.235.82:3306/jd_judiciary?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: 1234
+    password: root
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     druid:
@@ -40,7 +40,7 @@ spring:
     host: 188.131.133.118
     port: 5672
     username: sunyi
-    password:  19950430
+    password: 19950430
     virtual-host: /sunyimq
     publisher-confirms: true
     publisher-returns: true
