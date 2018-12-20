@@ -33,13 +33,17 @@ package com.example.jdproducercouponinfo.cn.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.example.jdproducercouponinfo.cn.pojo.CouList;
 import com.example.jdproducercouponinfo.cn.service.CouponPostService;
+import com.example.jdproducercouponinfo.cn.util.DateUtil;
 import com.example.jdproducercouponinfo.cn.util.MakeCouponId;
 import com.example.jdproducercouponinfo.cn.mapper.CouponPost;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static com.example.jdproducercouponinfo.cn.util.DateUtil.isValidDate;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -62,13 +66,36 @@ public class CouponPostServiceImpl implements CouponPostService {
      * @date 2018/12/19 17:55
      */
     @Override
-    public String couponpost(CouList couList, int time) {
-        couList.setCou_cid(new MakeCouponId().makeCouponID().replace("-",""));
-        couList.setCou_stauts(0);
+    public String addCoupon(CouList couList) {
+        //couList.setCou_cid(new MakeCouponId().makeCouponID().replace("-",""));
+        //couList.setCou_stauts(0);
+        String startTime;
+        Date start;
+        if (isValidDate(couList.getCou_starttime())){
+            SimpleDateFormat startDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:00:00");
+            try {
+                start = startDateFormat.parse(couList.getCou_starttime());
+            } catch (ParseException e) {
+                System.out.println(e.getMessage());
+                return JSON.toJSONString("优惠券开始时间格式错误");
+            }
+            startTime = startDateFormat.format(start);
+            couList.setCou_starttime(startTime);
+        } else {
+            SimpleDateFormat startDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            startTime = startDateFormat.format(System.currentTimeMillis());
+            couList.setCou_starttime(startTime);
+        }
         SimpleDateFormat startDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            start = startDateFormat.parse(startTime);
+        } catch (ParseException e) {
+            return JSON.toJSONString("优惠券开始时间格式错误");
+        }
+        long stime = start.getTime();
         SimpleDateFormat passDateFormat = new SimpleDateFormat("yyyy-MM-dd 23:59:59");
-        couList.setCou_starttime(startDateFormat.format(System.currentTimeMillis()));
-        couList.setCou_passtime(passDateFormat.format(System.currentTimeMillis() + time * 24 * 60 * 60 * 1000));
+        long time = Integer.parseInt(couList.getCou_passtime());
+        couList.setCou_passtime(passDateFormat.format(stime + time * 24 * 60 * 60 * 1000));
         if(couponPost.insertSelective(couList) >= 0){
             return JSON.toJSONString("添加成功");
         } else {

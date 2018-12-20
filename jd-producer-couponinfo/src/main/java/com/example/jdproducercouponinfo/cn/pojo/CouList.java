@@ -4,8 +4,6 @@ public class CouList {
 
   private Integer cou_Id;
   private String cou_name;
-  private String cou_cid;
-  private Integer cou_owneruid;
   private String cou_starttime;
   private String cou_passtime;
   private Integer cou_type;
@@ -13,7 +11,6 @@ public class CouList {
   private Integer cou_sale;
   private Integer cou_discount;
   private Integer cou_amount;
-  private Integer cou_stauts;
 
   public Integer getCou_Id() {
     return cou_Id;
@@ -29,22 +26,6 @@ public class CouList {
 
   public void setCou_name(String cou_name) {
     this.cou_name = cou_name;
-  }
-
-  public String getCou_cid() {
-    return cou_cid;
-  }
-
-  public void setCou_cid(String cou_cid) {
-    this.cou_cid = cou_cid;
-  }
-
-  public Integer getCou_owneruid() {
-    return cou_owneruid;
-  }
-
-  public void setCou_owneruid(Integer cou_owneruid) {
-    this.cou_owneruid = cou_owneruid;
   }
 
   public String getCou_starttime() {
@@ -101,13 +82,5 @@ public class CouList {
 
   public void setCou_amount(Integer cou_amount) {
     this.cou_amount = cou_amount;
-  }
-
-  public Integer getCou_stauts() {
-    return cou_stauts;
-  }
-
-  public void setCou_stauts(Integer cou_stauts) {
-    this.cou_stauts = cou_stauts;
   }
 }

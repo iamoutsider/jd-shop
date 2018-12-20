@@ -6,7 +6,7 @@ eureka:
       defaultZone: http://root:123456@39.105.158.185:7776/eureka/
 spring:
   datasource: # 使用druid数据源
-    url: jdbc:mysql://39.107.126.239:3306/jd_shop_coupon?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/jd_shop_coupon?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
