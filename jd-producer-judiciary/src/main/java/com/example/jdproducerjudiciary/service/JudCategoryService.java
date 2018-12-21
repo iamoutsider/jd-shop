@@ -7,7 +7,7 @@ import java.util.List;
  * (JudCategory)表服务接口
  *
  * @author makejava
- * @since 2018-12-20 21:05:36
+ * @since 2018-12-20 22:15:45
  */
 public interface JudCategoryService {
 

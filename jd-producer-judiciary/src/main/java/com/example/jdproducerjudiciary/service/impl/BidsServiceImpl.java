@@ -14,7 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2018-12-20 21:04:21
  */
-@Service("bidsService")
+@Service
 public class BidsServiceImpl implements BidsService {
     @Resource
     private BidsDao bidsDao;

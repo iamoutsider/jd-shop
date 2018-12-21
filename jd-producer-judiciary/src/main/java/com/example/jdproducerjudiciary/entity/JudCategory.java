@@ -6,14 +6,14 @@ import java.io.Serializable;
  * (JudCategory)实体类
  *
  * @author makejava
- * @since 2018-12-20 21:05:36
+ * @since 2018-12-20 22:15:45
  */
 public class JudCategory implements Serializable {
-    private static final long serialVersionUID = -50295680296189518L;
+    private static final long serialVersionUID = -59393505292932893L;
     //司法分类ID
     private Integer judCategoryid;
-    //类别
-    private String judType;
+    //司法分类名字
+    private String judCategoryname;
 
 
     public Integer getJudCategoryid() {
@@ -24,12 +24,12 @@ public class JudCategory implements Serializable {
         this.judCategoryid = judCategoryid;
     }
 
-    public String getJudType() {
-        return judType;
+    public String getJudCategoryname() {
+        return judCategoryname;
     }
 
-    public void setJudType(String judType) {
-        this.judType = judType;
+    public void setJudCategoryname(String judCategoryname) {
+        this.judCategoryname = judCategoryname;
     }
 
 }

@@ -27,7 +27,7 @@
     </select>
 
     <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="BidsMap">
+    <select id="queryAllbid" resultMap="BidsMap">
         select
           Bids_id, Bids_goods, Bids_userid, Bids_price, Bids_time
         from jd_judiciary.bids

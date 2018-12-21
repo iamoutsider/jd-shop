@@ -4,52 +4,52 @@
 
     <resultMap type="com.example.jdproducerjudiciary.entity.JudCategory" id="JudCategoryMap">
         <result property="judCategoryid" column="jud_categoryid" jdbcType="INTEGER"/>
-        <result property="judType" column="jud_type" jdbcType="VARCHAR"/>
+        <result property="judCategoryname" column="jud_categoryname" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="JudCategoryMap">
         select
-          jud_categoryid, jud_type
-        from jd_judiciary.jud_category
+          jud_categoryname
+        from jud_category
         where jud_categoryid = #{judCategoryid}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="JudCategoryMap">
         select
-          jud_categoryid, jud_type
-        from jd_judiciary.jud_category
+          jud_categoryid, jud_categoryname
+        from jud_category
         limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="JudCategoryMap">
+    <select id="queryAllcate" resultMap="JudCategoryMap">
         select
-          jud_categoryid, jud_type
-        from jd_judiciary.jud_category
+          jud_categoryid, jud_categoryname
+        from jud_category
         <where>
             <if test="judCategoryid != null">
                 and jud_categoryid = #{judCategoryid}
             </if>
-            <if test="judType != null and judType != ''">
-                and jud_type = #{judType}
+            <if test="judCategoryname != null and judCategoryname != ''">
+                and jud_categoryname = #{judCategoryname}
             </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="judCategoryid" useGeneratedKeys="true">
-        insert into jd_judiciary.jud_category(jud_type)
-        values (#{judType})
+        insert into jud_category(jud_categoryname)
+        values (#{judCategoryname})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update jd_judiciary.jud_category
+        update jud_category
         <set>
-            <if test="judType != null and judType != ''">
-                jud_type = #{judType},
+            <if test="judCategoryname != null and judCategoryname != ''">
+                jud_categoryname = #{judCategoryname},
             </if>
         </set>
         where jud_categoryid = #{judCategoryid}
@@ -57,7 +57,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from jd_judiciary.jud_category where jud_categoryid = #{judCategoryid}
+        delete from jud_category where jud_categoryid = #{judCategoryid}
     </delete>
 
 </mapper>

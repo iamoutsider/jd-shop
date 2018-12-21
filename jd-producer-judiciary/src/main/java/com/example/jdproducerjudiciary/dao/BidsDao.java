@@ -1,6 +1,7 @@
 package com.example.jdproducerjudiciary.dao;
 
 import com.example.jdproducerjudiciary.entity.Bids;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author makejava
  * @since 2018-12-20 21:04:20
  */
+@Mapper
 public interface BidsDao {
 
     /**
@@ -36,7 +38,7 @@ public interface BidsDao {
      * @param bids 实例对象
      * @return 对象列表
      */
-    List<Bids> queryAll(Bids bids);
+    List<Bids> queryAllbid(Bids bids);
 
     /**
      * 新增数据

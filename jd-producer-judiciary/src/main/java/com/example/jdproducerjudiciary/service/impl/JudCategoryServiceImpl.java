@@ -12,9 +12,9 @@ import java.util.List;
  * (JudCategory)表服务实现类
  *
  * @author makejava
- * @since 2018-12-20 21:05:36
+ * @since 2018-12-20 22:15:45
  */
-@Service("judCategoryService")
+@Service
 public class JudCategoryServiceImpl implements JudCategoryService {
     @Resource
     private JudCategoryDao judCategoryDao;

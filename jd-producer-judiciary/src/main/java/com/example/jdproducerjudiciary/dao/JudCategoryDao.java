@@ -1,6 +1,7 @@
 package com.example.jdproducerjudiciary.dao;
 
 import com.example.jdproducerjudiciary.entity.JudCategory;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -8,8 +9,9 @@ import java.util.List;
  * (JudCategory)表数据库访问层
  *
  * @author makejava
- * @since 2018-12-20 21:05:36
+ * @since 2018-12-20 22:15:45
  */
+@Mapper
 public interface JudCategoryDao {
 
     /**
@@ -36,7 +38,7 @@ public interface JudCategoryDao {
      * @param judCategory 实例对象
      * @return 对象列表
      */
-    List<JudCategory> queryAll(JudCategory judCategory);
+    List<JudCategory> queryAllcate(JudCategory judCategory);
 
     /**
      * 新增数据

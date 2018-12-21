@@ -1,7 +1,10 @@
 package com.example.jdproducerjudiciary.dao;
 
 import com.example.jdproducerjudiciary.entity.Judiciary;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -10,6 +13,7 @@ import java.util.List;
  * @author makejava
  * @since 2018-12-20 21:50:35
  */
+@Mapper
 public interface JudiciaryDao {
 
     /**
@@ -21,13 +25,11 @@ public interface JudiciaryDao {
     Judiciary queryById(Integer judId);
 
     /**
-     * 查询指定行数据
+     * 查询多条数据 导到solr
      *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
      * @return 对象列表
      */
-    List<Judiciary> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<Judiciary> queryAlljud();
 
 
     /**

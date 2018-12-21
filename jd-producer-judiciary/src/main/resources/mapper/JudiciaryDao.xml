@@ -23,7 +23,7 @@
         <result property="judAnnouncement" column="jud_announcement" jdbcType="VARCHAR"/>
         <result property="judRemind" column="jud_remind" jdbcType="INTEGER"/>
         <result property="judPicture" column="jud_picture" jdbcType="VARCHAR"/>
-        <result property="judDisposeunit" column="jud_disposeunit" jdbcType="INTEGER"/>
+        <result property="judDisposeunit" column="jud_disposeunit" jdbcType="VARCHAR"/>
         <result property="judLinkman" column="jud_linkman" jdbcType="VARCHAR"/>
     </resultMap>
 
@@ -31,23 +31,22 @@
     <select id="queryById" resultMap="JudiciaryMap">
         select
           jud_id, jud_category, jud_areacity, jud_status, jud_frequency, jud_tradename, jud_site, jud_longitude, jud_dimensionality, jud_auctiontime, jud_willnum, jud_onlooker, jud_currentprice, jud_startingprice, jud_valuation, jud_bidIncrement, jud_cashdeposit, jud_announcement, jud_remind, jud_picture, jud_disposeunit, jud_linkman
-        from jd_judiciary.judiciary
+        from judiciary
         where jud_id = #{judId}
     </select>
 
     <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="JudiciaryMap">
+    <select id="queryAlljud" resultMap="JudiciaryMap">
         select
           jud_id, jud_category, jud_areacity, jud_status, jud_frequency, jud_tradename, jud_site, jud_longitude, jud_dimensionality, jud_auctiontime, jud_willnum, jud_onlooker, jud_currentprice, jud_startingprice, jud_valuation, jud_bidIncrement, jud_cashdeposit, jud_announcement, jud_remind, jud_picture, jud_disposeunit, jud_linkman
-        from jd_judiciary.judiciary
-        limit #{offset}, #{limit}
+        from judiciary
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="JudiciaryMap">
         select
           jud_id, jud_category, jud_areacity, jud_status, jud_frequency, jud_tradename, jud_site, jud_longitude, jud_dimensionality, jud_auctiontime, jud_willnum, jud_onlooker, jud_currentprice, jud_startingprice, jud_valuation, jud_bidIncrement, jud_cashdeposit, jud_announcement, jud_remind, jud_picture, jud_disposeunit, jud_linkman
-        from jd_judiciary.judiciary
+        from judiciary
         <where>
             <if test="judId != null">
                 and jud_id = #{judId}
@@ -120,13 +119,13 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="judId" useGeneratedKeys="true">
-        insert into jd_judiciary.judiciary(jud_category, jud_areacity, jud_status, jud_frequency, jud_tradename, jud_site, jud_longitude, jud_dimensionality, jud_auctiontime, jud_willnum, jud_onlooker, jud_currentprice, jud_startingprice, jud_valuation, jud_bidIncrement, jud_cashdeposit, jud_announcement, jud_remind, jud_picture, jud_disposeunit, jud_linkman)
+        insert into judiciary(jud_category, jud_areacity, jud_status, jud_frequency, jud_tradename, jud_site, jud_longitude, jud_dimensionality, jud_auctiontime, jud_willnum, jud_onlooker, jud_currentprice, jud_startingprice, jud_valuation, jud_bidIncrement, jud_cashdeposit, jud_announcement, jud_remind, jud_picture, jud_disposeunit, jud_linkman)
         values (#{judCategory}, #{judAreacity}, #{judStatus}, #{judFrequency}, #{judTradename}, #{judSite}, #{judLongitude}, #{judDimensionality}, #{judAuctiontime}, #{judWillnum}, #{judOnlooker}, #{judCurrentprice}, #{judStartingprice}, #{judValuation}, #{judBidincrement}, #{judCashdeposit}, #{judAnnouncement}, #{judRemind}, #{judPicture}, #{judDisposeunit}, #{judLinkman})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update jd_judiciary.judiciary
+        update judiciary
         <set>
             <if test="judCategory != null">
                 jud_category = #{judCategory},
@@ -197,7 +196,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from jd_judiciary.judiciary where jud_id = #{judId}
+        delete from judiciary where jud_id = #{judId}
     </delete>
 
 </mapper>

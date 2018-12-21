@@ -10,7 +10,7 @@ import javax.annotation.Resource;
  * (JudCategory)表控制层
  *
  * @author makejava
- * @since 2018-12-20 21:05:36
+ * @since 2018-12-20 22:15:45
  */
 @RestController
 @RequestMapping("judCategory")

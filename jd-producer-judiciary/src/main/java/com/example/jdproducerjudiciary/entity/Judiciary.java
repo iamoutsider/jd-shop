@@ -15,12 +15,18 @@ public class Judiciary implements Serializable {
     private Integer judId;
     //拍品类别
     private Integer judCategory;
+    //拍品类别String
+    private String judcategoryStr;
     //省市 山西
     private String judAreacity;
     //拍品状态1拍卖中2预告中3已结束4已暂缓5已中止6已撤回
     private Integer judStatus;
+    //拍品状态1拍卖中2预告中3已结束4已暂缓5已中止6已撤回
+    private String  judStatusStr;
     //拍的次数(几拍) 一拍 二拍 变卖 三种
     private Integer judFrequency;
+    //拍的次数(几拍) 一拍 二拍 变卖 三种
+    private String judFrequencyStr;
     //司法拍品名
     private String judTradename;
     //拍品地址
@@ -45,14 +51,14 @@ public class Judiciary implements Serializable {
     private String judBidincrement;
     //保证金
     private String judCashdeposit;
-    //法院公告
+    //法院公告  暂时没导入solr
     private String judAnnouncement;
     //被设置提醒次数
     private Integer judRemind;
     //图片IP地址图片之间用逗号隔开
     private String judPicture;
     //处置单位
-    private Integer judDisposeunit;
+    private String judDisposeunit;
     //联系人加电话  空格隔开
     private String judLinkman;
 
@@ -71,6 +77,30 @@ public class Judiciary implements Serializable {
 
     public void setJudCategory(Integer judCategory) {
         this.judCategory = judCategory;
+    }
+
+    public String getJudStatusStr() {
+        return judStatusStr;
+    }
+
+    public void setJudStatusStr(String judStatusStr) {
+        this.judStatusStr = judStatusStr;
+    }
+
+    public String getJudFrequencyStr() {
+        return judFrequencyStr;
+    }
+
+    public void setJudFrequencyStr(String judFrequencyStr) {
+        this.judFrequencyStr = judFrequencyStr;
+    }
+
+    public String getJudcategoryStr() {
+        return judcategoryStr;
+    }
+
+    public void setJudcategoryStr(String judcategoryStr) {
+        this.judcategoryStr = judcategoryStr;
     }
 
     public String getJudAreacity() {
@@ -129,8 +159,9 @@ public class Judiciary implements Serializable {
         this.judDimensionality = judDimensionality;
     }
 
-    public Date getJudAuctiontime() {
-        return judAuctiontime;
+    public String getJudAuctiontime() {
+
+       return judAuctiontime.toString();
     }
 
     public void setJudAuctiontime(Date judAuctiontime) {
@@ -217,11 +248,11 @@ public class Judiciary implements Serializable {
         this.judPicture = judPicture;
     }
 
-    public Integer getJudDisposeunit() {
+    public String getJudDisposeunit() {
         return judDisposeunit;
     }
 
-    public void setJudDisposeunit(Integer judDisposeunit) {
+    public void setJudDisposeunit(String judDisposeunit) {
         this.judDisposeunit = judDisposeunit;
     }
 

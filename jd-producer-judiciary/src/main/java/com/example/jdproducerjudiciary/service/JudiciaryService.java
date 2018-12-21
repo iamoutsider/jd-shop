@@ -1,6 +1,9 @@
 package com.example.jdproducerjudiciary.service;
 
 import com.example.jdproducerjudiciary.entity.Judiciary;
+import org.apache.solr.client.solrj.SolrServerException;
+
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -20,13 +23,11 @@ public interface JudiciaryService {
     Judiciary queryById(Integer judId);
 
     /**
-     * 查询多条数据
+     * 查询多条数据 导到solr
      *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
      * @return 对象列表
      */
-    List<Judiciary> queryAllByLimit(int offset, int limit);
+    void queryAll() throws IOException, SolrServerException;
 
     /**
      * 新增数据
