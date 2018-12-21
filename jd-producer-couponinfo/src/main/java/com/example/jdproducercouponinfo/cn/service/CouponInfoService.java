@@ -1,9 +1,9 @@
 /**
  * Copyright (C), 2015-2018, XXX有限公司
- * FileName: CouponPostService
+ * FileName: CouponInfoService
  * Author:   RanHaoHao
- * Date:     2018/12/19 17:20
- * Description: 优惠券发布业务接口
+ * Date:     2018/12/21 10:58
+ * Description: 优惠券信息业务
  * History:
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
@@ -32,25 +32,25 @@ package com.example.jdproducercouponinfo.cn.service;
 
 import com.example.jdproducercouponinfo.cn.pojo.CouList;
 
-import java.text.ParseException;
+import java.util.List;
 
 /**
  * 〈一句话功能简述〉<br> 
- * 〈优惠券发布业务接口〉
+ * 〈优惠券信息业务〉
  *
  * @author RanHaoHao
- * @create 2018/12/19
+ * @create 2018/12/21
  * @since 1.0.0
  */
-public interface CouponPostService {
+public interface CouponInfoService {
 
     /**
      *〈一句话功能简述〉<br>
-     * 添加优惠券信息
+     * 获取所有优惠券信息
      * @author //TODO RanHaoHao
-     * @date  2018/12/19 17:55
-     * @param couList 实体类对象
-     * @return String 返回添加优惠券状态信息
+     * @date  2018/12/21 10:59
+     * @param
+     * @return
      */
-    String addCoupon(CouList couList);
+    String getAllCoupon();
 }

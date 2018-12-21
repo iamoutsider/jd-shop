@@ -31,11 +31,9 @@
 package com.example.jdproducercouponinfo.cn.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.example.jdproducercouponinfo.cn.mapper.CouponPostDao;
 import com.example.jdproducercouponinfo.cn.pojo.CouList;
 import com.example.jdproducercouponinfo.cn.service.CouponPostService;
-import com.example.jdproducercouponinfo.cn.util.DateUtil;
-import com.example.jdproducercouponinfo.cn.util.MakeCouponId;
-import com.example.jdproducercouponinfo.cn.mapper.CouponPost;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -56,14 +54,15 @@ import static com.example.jdproducercouponinfo.cn.util.DateUtil.isValidDate;
 @Service
 public class CouponPostServiceImpl implements CouponPostService {
     @Resource
-    private CouponPost couponPost;
+    private CouponPostDao couponPostDao;
 
     /**
+     *〈一句话功能简述〉<br>
+     * @deprecated 添加优惠券信息
+     * @author //TODO RanHaoHao
+     * @date  2018/12/19 17:55
      * @param couList 实体类对象
      * @return String 返回添加优惠券状态信息
-     * @author HHHH
-     * @description //TODO RanHaoHao
-     * @date 2018/12/19 17:55
      */
     @Override
     public String addCoupon(CouList couList) {
@@ -96,7 +95,7 @@ public class CouponPostServiceImpl implements CouponPostService {
         SimpleDateFormat passDateFormat = new SimpleDateFormat("yyyy-MM-dd 23:59:59");
         long time = Integer.parseInt(couList.getCou_passtime());
         couList.setCou_passtime(passDateFormat.format(stime + time * 24 * 60 * 60 * 1000));
-        if(couponPost.insertSelective(couList) >= 0){
+        if(couponPostDao.insertSelective(couList) >= 0){
             return JSON.toJSONString("添加成功");
         } else {
             return JSON.toJSONString("添加失败");
