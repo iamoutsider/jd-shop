@@ -1,9 +1,9 @@
 /**
  * Copyright (C), 2015-2018, XXX有限公司
- * FileName: CouponInfoService
+ * FileName: CouponInfoController
  * Author:   RanHaoHao
- * Date:     2018/12/21 10:58
- * Description: 优惠券信息业务
+ * Date:     2018/12/21 11:06
+ * Description: 优惠券信息API
  * History:
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
@@ -28,25 +28,29 @@
  * 　　　　　　　　　 ┃┫┫　 ┃┫┫
  * 　　　　　　　　　 ┗┻┛　 ┗┻┛+ + + + *
  */
-package com.example.jdproducercouponinfo.cn.service;
+package com.example.jdproducercouponinfo.cn.controller;
+
+import com.example.jdproducercouponinfo.cn.service.CouponInfoService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * 〈一句话功能简述〉<br> 
- * 〈优惠券信息业务〉
+ * 〈优惠券信息API〉
  *
  * @author RanHaoHao
- * @create 2018/12/21
+ * @create 2018/12/21 11:06
  * @since 1.0.0
  */
-public interface CouponInfoService {
+@RestController
+public class CouponInfoController {
+    @Resource
+    private CouponInfoService couponInfoService;
 
-    /**
-     *〈一句话功能简述〉<br>
-     * 获取所有优惠券信息
-     * @author //TODO RanHaoHao
-     * @date  2018/12/21 10:59
-     * @param
-     * @return
-     */
-    String getAllCoupon();
+    @GetMapping(value = "/getAll")
+    public String getAllCoupon(){
+        return couponInfoService.getAllCoupon();
+    }
 }

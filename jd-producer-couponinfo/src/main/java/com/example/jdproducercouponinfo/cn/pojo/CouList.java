@@ -2,7 +2,7 @@ package com.example.jdproducercouponinfo.cn.pojo;
 
 public class CouList {
 
-  private Integer cou_Id;
+  private Integer cou_id;
   private String cou_name;
   private String cou_starttime;
   private String cou_passtime;
@@ -13,11 +13,11 @@ public class CouList {
   private Integer cou_amount;
 
   public Integer getCou_Id() {
-    return cou_Id;
+    return cou_id;
   }
 
-  public void setCou_Id(Integer cou_Id) {
-    this.cou_Id = cou_Id;
+  public void setCou_Id(Integer cou_id) {
+    this.cou_id = cou_id;
   }
 
   public String getCou_name() {
